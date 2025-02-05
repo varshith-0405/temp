@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function f1(){
+            let x=document.getElementById("mail").value;
+            let y=document.getElementById("pass").value;
+            if(x=="john@email.com" && y==123){
+                s.innerHTML="Welcome john"
+            }
+            
+            else{
+                alert("Invalid ceredentials")
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <input type="email" placeholder="Email address or phone number" id="mail">
+    </div>
+    <div>
+        <input type="password" placeholder="Password" id="pass">
+    </div>
+    <button onclick="f1()"> Login</button>
+<hr>
+    <div id="s"></div>
+</body>
+</html>

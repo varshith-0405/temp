@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function f1(){
+            let v=document.getElementById("grade").value;
+            
+            if(v>90){
+                msg.innerHTML=v+"-"+"Grade A"
+             }
+             else if(v>79){
+                msg.innerHTML=v+"-"+"Grade A"
+             }
+             else if(v>69){
+                msg.innerHTML=v+"-"+"Grade C"
+             }
+             else{
+                msg.innerHTML=v+"-"+"Grade D"
+             }
+             
+        }
+    </script>
+</head>
+<body>
+    <input type="number" placeholder="enter grade" id="grade">
+    <button onclick="f1()">Submit</button>
+    <hr>
+    <div id="msg" ></div>
+</body>
+</html>
