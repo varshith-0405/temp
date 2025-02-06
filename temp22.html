@@ -9,62 +9,47 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-direction: column;
         height: 100vh;
         margin: 0;
       }
       .content {
         text-align: center;
       }
-      .users-list {
-        margin-top: 20px;
-        border: 1px solid #ccc;
-        padding: 10px;
-        width: 50%;
-        text-align: left;
-      }
-      button {
-        margin-top: 10px;
-      }
     </style>
     <script>
-      let users = [];
-
-      function deleteUser(index) {
-        users.splice(index, 1);
-        f1();
+        let users = [];
+       function deleteUser(index) {
+        users.splice(index,1);
+        showUsers()
       }
-
+      function showUsers() {
+        let length = users.length;
+        let str = "";
+        for (let i = 0; i < length; i++) {
+          str += `<div>
+                    ${users[i].name}-
+                    ${users[i].email}-
+                    ${users[i].password}-
+                    ${users[i].dob}-
+                    <button onclick='deleteUser(${i})'>Delete</button>
+                    </div>`;
+        }
+        data.innerHTML = str;
+      }
       function f1() {
         let z = document.getElementById("name").value;
         let x = document.getElementById("mail").value;
         let y = document.getElementById("pass").value;
         let a = document.getElementById("dob").value;
-
         let user = {
-          name: z,
-          email: x,
-          password: y,
-          dob: a,
+          name:z,
+          email:x,
+          password:y,
+          dob:a,
         };
-
         users.push(user);
-        f2();
-      }
-
-      function showUsers() {
-        f2();
-      }
-
-      function f2() {
-        let str = "";
-        for (let i = 0; i < users.length; i++) {
-          str += `<div>
-                    ${users[i].name} - ${users[i].email} - ${users[i].password} - ${users[i].dob}
-                    <button onclick="deleteUser(${i})">Delete</button>
-                  </div>`;
-        }
-        document.getElementById("data").innerHTML = str || "<p>No users registered yet.</p>";
+        showUsers();
+        // s.innerHTML = `${z}, ${x} ,${y}, ${a}`;
       }
     </script>
   </head>
@@ -72,17 +57,28 @@
     <div>
       <h1>New Registration</h1>
       <div class="content">
-        <p>Enter Name: <input type="text" placeholder="Enter name" id="name" /></p>
-        <p>Enter Email: <input type="email" placeholder="Email address" id="mail" /></p>
-        <p>Enter Password: <input type="password" placeholder="Password" id="pass" /></p>
-        <p>Enter DOB: <input type="date" id="dob" /></p>
+        <p>
+          Enter Name &nbsp; &nbsp; :
+          <input type="text" placeholder="Enter name" id="name" />
+        </p>
+        <p>
+          Enter Email &nbsp; &nbsp; :
+          <input
+            type="email"
+            placeholder="Email address or phone number"
+            id="mail"
+          />
+        </p>
+        <p>
+          Enter password:
+          <input type="password" placeholder="Password" id="pass" />
+        </p>
+        <p>Enetr DOB: <input type="date" placeholder="Enter DOB" id="dob" /></p>
       </div>
-      <p>
-        <button onclick="f1()">REGISTER</button>
-        <button onclick="showUsers()">SHOW USERS</button>
-      </p>
+      <p><button onclick="f1()">REGISTER</button></p>
+      <p></p>
 
-      <div id="data" class="users-list"></div>
+      <div id="data"></div>
     </div>
   </body>
 </html>
