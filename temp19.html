@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      let products = [
+        { id: 1, name: "Product 1", price: 35,url:"assets/images/download.jpeg" },
+        { id: 2, name: "Product 2", price: 76,url:"" },
+        { id: 3, name: "Product 3", price: 100,url:" " },
+      ];
+      console.log(products[0]);
+      console.log(products[0].name);
+      console.log(products[0].price);
+      let length = products.length;
+      let str = "";
+      //   for(let i=0;i<length;i++){
+      //         console.log(products[i].price)
+      //   }
+      for (let i = 0; i < length; i++) {
+        str += `<div> 
+            <img src="${products[i].url}" alt="no image">
+            <h1>${products[i].name}</h1> 
+            <h2> PRICE: ${products[i].price}<h2>
+            <button> Add to CART </button>
+            <hr>
+            </div>`;
+      }
+      root.innerHTML = str;
+    </script>
+  </body>
+</html>

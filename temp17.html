@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .content {
+        text-align: center;
+      }
+    </style>
+    <script>
+      function f1() {
+        let z = document.getElementById("name").value;
+        let x = document.getElementById("mail").value;
+        let y = document.getElementById("pass").value;
+        let a = document.getElementById("dob").value;
+        s.innerHTML = `${z}, ${x} ,${y}, ${a}`;
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <h1>New Registration</h1>
+      <div class="content">
+        <p>
+          Enter Name &nbsp; &nbsp; :
+          <input type="text" placeholder="Enter name" id="name" />
+        </p>
+        <p>
+          Enter Email &nbsp; &nbsp; :
+          <input
+            type="email"
+            placeholder="Email address or phone number"
+            id="mail"
+          />
+        </p>
+        <p>
+          Enter password:
+          <input type="password" placeholder="Password" id="pass" />
+        </p>
+        <p>Enetr DOB: <input type="date" placeholder="Enter DOB" id="dob" /></p>
+      </div>
+      <p><button onclick="f1()">REGISTER</button></p>
+      <p></p>
+
+      <div id="s"></div>
+    </div>
+  </body>
+</html>
