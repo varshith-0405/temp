@@ -12,19 +12,19 @@
             str="";
             for(let i=1;i<11;i++){
                 let y=x*i;
-            str+=`<div>
-                <h4>${x} x ${i} = ${y}</h4>
-                </div>`
+            str+=`${x} x ${i} = ${y} <br>`
+                
             }
-            document.getElementById("root").innerHTML = str;
+            root.innerHTML = str;
         }
     </script>
 
     <div>
-        <p><input type="number" placeholder="enter number"id="numb"></p>
-        <button onclick="f1()">Submit</button>
+        <p><input type="number" placeholder="enter number"id="numb" on="f1()"></p>
+        <!-- <button onclick="f1()">Submit</button> -->
 
     </div>
+    <hr>
     <div id="root"></div>
 </body>
 </html>
