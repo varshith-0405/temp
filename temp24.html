@@ -12,22 +12,48 @@
       ];
       const cart = {};
       const addToCart = (id) => {
+        // const score ={};
+        // score['maths']=95;
+        // score["maths"]+=2;
+        // console.log(score);
+        // score["maths"]=75;
+        // console.log(score);
         cart[id] = 1;
         console.log(cart);
         showCart();
       };
-
+      const increment =(id)=>{
+        cart[id]=cart[id]+1;
+        showCart();
+      }
+      const decrement =(id)=>{
+        cart[id]=cart[id]-1;
+        showCart();
+      }
       const showCart = () => {
         let str = "";
         products.map((value) => {
           if (cart[value.id]) {
             str += `
-            <li>${value.name}-$${value.price}-<button>-</button>${cart[value.id]}<button>+</button>-${value.price*cart[value.id]}</li>
+            <li>${value.name}-$${value.price}-<button onclick="decrement(${value.id})">-</button>${cart[value.id]}<button onclick="increment(${value.id})">+</button>-${value.price*cart[value.id]}</li>
             `;
           }
         });
         divCart.innerHTML = str;
+        showtotal();
       };
+      const showtotal= () =>{
+        divtotal.innerHTML="Order Value:"
+        let total=products.reduce((sum,value) => {
+        //     if(cart[value.id]){
+        //   return sum+value.price*cart[value.id];
+        // }
+        // return sum;
+         return sum+value.price*(cart[value.id]? cart[value.id]:0);
+       },0);
+       divtotal.innerHTML="Order Value :$"+total;
+      };
+
       const showProducts = () => {
         let str = "";
         products.map((value) => {
@@ -36,6 +62,7 @@
           `;
         });
         divProducts.innerHTML = str;
+        
       };
     </script>
   </head>
@@ -46,5 +73,9 @@
     <div id="divProducts"></div>
     <h3>My Cart</h3>
     <div id="divCart"></div>
+
+    <div id="divtotal">
+        <h2>Total:</h2>
+    </div>
   </body>
 </html>
