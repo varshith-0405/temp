@@ -4,10 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+    <style>
+        .c{
+            background-color: yellow;
+        }
+    </style>
     <script>
         function f1(){
-            let x=document.getElementById("mail").value;
+            // let x=document.getElementById("mail").value;
+            // let x=document.querySelector("#mail").value;
+            // let x=document.querySelector(".c").value;
+            let x=document.querySelector("input").value;
+            let z=document.querySelectorAll("input").value;
+            console.log(z[1].value);
             let y=document.getElementById("pass").value;
                 s.innerHTML=`${x} ,${y}`;
           
@@ -18,7 +27,7 @@
     <h1>Login Form
     </h1>
     <div>
-        <p><input type="email" placeholder="Email address or phone number" id="mail"></p>
+        <p><input type="email"class="c" placeholder="Email address " id="mail"></p>
     </div>
     <div>
         <p></p><input type="password" placeholder="Password" id="pass"></p>
